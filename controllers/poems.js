@@ -40,12 +40,18 @@ function show(req, res) {
   });
 }
 //delete
-function deletePoem(req, res) {
-  Poem.findOneAndDelete(
+function deletePoem(req, res) {  //defining a function called delete poem
+  console.log("trying delete")
+  Poem.findOneAndDelete( //Poem is a model that is providing you a function.
     // Ensue that the book was created by the logged in user
-    {_id: req.params.id, userRecommending: req.user._id}, function(err) {
+    {_id: req.params.id}, function(err) { //you pass in a property
+      if (err) {
+        console.error(err)
+        return res.send({error: err})
+      }
       // Deleted book, so must redirect to index
-      res.redirect('/poems',  { title: 'Delete' });
+      // res.redirect('/poems');
+      res.send('deleted')
     }
   );
 }

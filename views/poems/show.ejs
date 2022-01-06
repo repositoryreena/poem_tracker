@@ -1,9 +1,15 @@
 <%- include('../partials/header') %>
 
 <section id="show-page">
+  <div><%= poem.title %></div>
+  <div><%= poem.poet %></div>
+  <div><%= poem.releaseYear %></div>
   <div><pre><%= poem.poem %></pre></div>
-  <button type="button">Edit</button>
-  <button type="button">Delete</button>
+  <div>
+    <button type="button" onclick="var result = confirm('Want to delete?'); if (result) { fetch('/poems/<%= poem.id %>', {  method: 'DELETE',}).then(res => { alert('deleted'); window.location = '/poems'; }) }" >Delete</button>
+    <%= %>
+  </div>
+
 </section>
 
 
