@@ -27,4 +27,10 @@ router.get('/logout', function(req, res){
   res.redirect('/poems');
 });
 
+router.delete('/poems/:idx', function(req, res) {
+  poems.splice(req.params.idx, 1)
+  console.log(req.params);
+  res.redirect('/')
+})
+
 module.exports = router;

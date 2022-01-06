@@ -10,6 +10,7 @@ var methodOverride = require('method-override');
 // It's very important to require dotenv before any other module
 // that depends upon the properties added to process.env
 require('dotenv').config();
+const dotenv=require('dotenv');
 // config/database depends upon process.env.DATABASE_URL
 require('./config/database');
 // Our config/passport configures passport
@@ -17,8 +18,7 @@ require('./config/passport');
 
 var indexRouter = require('./routes/index');
 var poemsRouter = require('./routes/poems');
-var reviewsRouter = require('./routes/reviews');
-var performersRouter = require('./routes/performers');
+var commentsRouter = require('./routes/comments');
 
 var app = express();
 
@@ -50,8 +50,7 @@ app.use(function (req, res, next) {
 
 app.use('/', indexRouter);
 app.use('/poems', poemsRouter);
-app.use('/', reviewsRouter);
-app.use('/', performersRouter);
+// app.use('/', reviewsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -68,5 +67,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;

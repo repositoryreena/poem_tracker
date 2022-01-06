@@ -3,7 +3,9 @@
   <thead>
     <tr>
       <th>Title</th>
+      <th>Poet</th>
       <th>Release<br>Year</th>
+      <th>poem</th>
       <th></th>
     </tr>
   </thead>
@@ -11,11 +13,15 @@
     <% poems.forEach(function(m) { %>
       <tr>
         <td><%= m.title %></td>
+        <td><%= m.poet %></td>
         <td><%= m.releaseYear %></td>
-        <td><a href="/poems/<%= m._id %>">DETAILS</a></td>
+        <td><a href="/poems/<%= m._id %>">VIEW POEM</a></td>
       </tr>
       <% }); %>
     </tbody>
   </table>
 
 <%- include('../partials/footer') %>
+
+<!-- //oauth
+//ejs template -->
