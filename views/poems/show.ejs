@@ -7,7 +7,6 @@
   <div><pre><%= poem.poem %></pre></div>
   <div>
     <button type="button" onclick="var result = confirm('Want to mark as read?'); if (result) { fetch('/poems/markread/<%= poem._id %>', {  method: 'PUT',}).then(res => { alert('marked as read'); }) }" >Mark As Read</button>
-    <button type="button" onclick="var result = confirm('Want to add to my list?'); if (result) { fetch('/poems/addreadlist/<%= poem._id %>', {  method: 'PUT',}).then(res => { alert('added to read list'); }) }" >Add To My List</button>
     <%= %>
     <button type="button" onclick="var result = confirm('Want to delete?'); if (result) { fetch('/poems/<%= poem.id %>', {  method: 'DELETE',}).then(res => { alert('deleted'); window.location = '/poems'; }) }" >Delete</button>
     <%= %>
