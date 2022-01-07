@@ -14,8 +14,8 @@
     <% if (user) { %>
 
       <a href="/poems/new" <%- title === 'Add Poem' ? 'class="active"' : '' %>>ADD POEM</a>
-      <a href="/poems/new" <%- title === 'Read List' ? 'class="active"' : '' %>>READ LIST</a>
-      <a href="/poems/new" <%- title === 'Read' ? 'class="active"' : '' %>>READ</a>
+      <a href="/poems/readlist" <%- title === 'Read List' ? 'class="active"' : '' %>>READ LIST</a>
+      <a href="/poems/read" <%- title === 'Read' ? 'class="active"' : '' %>>READ</a>
       <a href="/logout">LOG OUT</a>
     <% } else { %>
       <a href="/auth/google" class="login">LOG IN&nbsp;</a>

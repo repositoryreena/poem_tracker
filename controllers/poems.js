@@ -42,7 +42,7 @@ function show(req, res) {
 //delete
 function deletePoem(req, res) {  //defining a function called delete poem
   console.log("trying delete")
-  Poem.findOneAndDelete( //Poem is a model that is providing you a function.
+  Poem.findOneAndDelete( //Poem is a model that is providing you a function.  Remove a single document from a collection based on a query and return a document with the same form as the document immediately before it was deleted. Unlike collection.deleteOne(), this action allows you to atomically find and delete a document with the same command. This avoids the risk of other update operations changing the document between separate find and delete operations.
     // Ensue that the book was created by the logged in user
     {_id: req.params.id}, function(err) { //you pass in a property
       if (err) {
@@ -59,7 +59,7 @@ function deletePoem(req, res) {  //defining a function called delete poem
 
 //update
 function update(req, res) {
-  Poem.findOneAndUpdate(
+  Poem.findOneAndUpdate( //Update a single document in a collection or view based on a query and return the document in either its pre-update or post-update form. Unlike collection.updateOne(), this action allows you to atomically find, update, and return a document with the same command. This avoids the risk of other update operations changing the document between separate find and update operations.
     {_id: req.params.id, userRecommending: req.user._id},
     // update object with updated properties
     req.body,
