@@ -32,6 +32,7 @@ function create(req, res) {
     res.redirect(`/poems/${poem._id}`);
   });
 }
+
 //show
 function show(req, res) {
   Poem.findById(req.params.id, function(err, poem) {
@@ -39,6 +40,7 @@ function show(req, res) {
     res.render('poems/show', {poem, title: 'Show Poem'});
   });
 }
+
 //delete
 function deletePoem(req, res) {  //defining a function called delete poem
   console.log("trying delete")
@@ -55,7 +57,6 @@ function deletePoem(req, res) {  //defining a function called delete poem
     }
   );
 }
-
 
 //update
 function update(req, res) {
